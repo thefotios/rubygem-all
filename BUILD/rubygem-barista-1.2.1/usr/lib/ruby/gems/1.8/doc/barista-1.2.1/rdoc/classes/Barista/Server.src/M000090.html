@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>_call (Barista::Server)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/barista/server.rb, line 51</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">_call</span>(<span class="ruby-identifier">env</span>)
+      <span class="ruby-ivar">@path_info</span> = <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">unescape</span>(<span class="ruby-identifier">env</span>[<span class="ruby-value str">'PATH_INFO'</span>].<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">not_found</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@path_info</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">PATH_REGEXP</span>
+      <span class="ruby-comment cmt"># Strip the prefix.</span>
+      <span class="ruby-ivar">@path_info</span>.<span class="ruby-identifier">gsub!</span> <span class="ruby-constant">PATH_REGEXP</span>, <span class="ruby-value str">''</span>
+      <span class="ruby-comment cmt"># Check it's a valid path.</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">forbidden</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@path_info</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value str">'..'</span>)
+      
+      <span class="ruby-comment cmt"># If coffeescript.js is the request, render the coffeescript compiler code.</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@path_info</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'coffeescript.js'</span>
+        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">response_for_text</span>(<span class="ruby-constant">CoffeeScript</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span>.<span class="ruby-identifier">contents</span>)
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-comment cmt"># Look up the type of the file based off of the extension.</span>
+      <span class="ruby-ivar">@result_type</span> = <span class="ruby-constant">EXTENSION_MAPPING</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-ivar">@path_info</span>)]
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">not_found</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@result_type</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> (<span class="ruby-ivar">@result_type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:coffeescript</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">Barista</span>.<span class="ruby-identifier">embedded_interpreter?</span>)
+      <span class="ruby-comment cmt"># Process the difference in content type.</span>
+      <span class="ruby-identifier">content</span>, <span class="ruby-identifier">last_modified</span> = <span class="ruby-constant">Barista</span><span class="ruby-operator">::</span><span class="ruby-constant">Compiler</span>.<span class="ruby-identifier">compile_as</span>(<span class="ruby-ivar">@path_info</span>, <span class="ruby-ivar">@result_type</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">content</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">not_found</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">response_for_text</span> <span class="ruby-identifier">content</span>, <span class="ruby-constant">CONTENT_TYPE_MAPPING</span>[<span class="ruby-ivar">@result_type</span>], <span class="ruby-identifier">last_modified</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

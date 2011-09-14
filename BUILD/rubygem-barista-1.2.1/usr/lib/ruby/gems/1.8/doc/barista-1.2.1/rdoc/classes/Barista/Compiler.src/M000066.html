@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>autocompile_file (Barista::Compiler)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/barista/compiler.rb, line 52</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">autocompile_file</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">force</span> = <span class="ruby-keyword kw">false</span>, <span class="ruby-identifier">silence_error</span> = <span class="ruby-keyword kw">false</span>)
+        <span class="ruby-comment cmt"># Expand the path from the framework.</span>
+        <span class="ruby-identifier">origin_path</span>, <span class="ruby-identifier">framework</span> = <span class="ruby-constant">Framework</span>.<span class="ruby-identifier">full_path_for</span>(<span class="ruby-identifier">file</span>)
+        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">origin_path</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">destination_path</span> = <span class="ruby-identifier">framework</span>.<span class="ruby-identifier">output_path_for</span>(<span class="ruby-identifier">file</span>)
+
+        <span class="ruby-comment cmt"># read file directly if auto_compile is disabled</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">Barista</span>.<span class="ruby-identifier">auto_compile?</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">destination_path</span>)
+            <span class="ruby-keyword kw">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">destination_path</span>)
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-keyword kw">return</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">destination_path</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">dirty?</span>(<span class="ruby-identifier">origin_path</span>, <span class="ruby-identifier">destination_path</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">force</span>
+        <span class="ruby-comment cmt"># Ensure we have a coffeescript compiler available.</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">check_availability!</span>(<span class="ruby-identifier">silence_error</span>)
+          <span class="ruby-constant">Barista</span>.<span class="ruby-identifier">debug</span> <span class="ruby-constant">UNAVAILABLE_MESSAGE</span>
+          <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-constant">Barista</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;Compiling #{file} from framework '#{framework.name}'&quot;</span>
+        <span class="ruby-identifier">compiler</span> = <span class="ruby-identifier">new</span>(<span class="ruby-identifier">origin_path</span>, <span class="ruby-identifier">:silence_error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">silence_error</span>, <span class="ruby-identifier">:output_path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">destination_path</span>)
+        <span class="ruby-identifier">content</span> = <span class="ruby-identifier">compiler</span>.<span class="ruby-identifier">to_js</span>
+        <span class="ruby-identifier">compiler</span>.<span class="ruby-identifier">save</span>
+        <span class="ruby-identifier">content</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::Framework#full_path_for
+is_singleton: false
+name: full_path_for
+params: (name)
+visibility: public

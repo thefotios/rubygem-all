@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::Framework#remove_prefix
+is_singleton: false
+name: remove_prefix
+params: (path, prefix)
+visibility: protected

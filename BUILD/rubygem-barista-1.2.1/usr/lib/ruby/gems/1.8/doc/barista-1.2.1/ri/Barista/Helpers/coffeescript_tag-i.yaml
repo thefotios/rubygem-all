@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::Helpers#coffeescript_tag
+is_singleton: false
+name: coffeescript_tag
+params: (code, html_options = {})
+visibility: public

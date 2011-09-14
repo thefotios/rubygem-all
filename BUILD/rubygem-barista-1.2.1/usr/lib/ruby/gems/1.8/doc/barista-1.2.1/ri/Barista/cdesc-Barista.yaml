@@ -1,0 +1,98 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: app_root
+- !ruby/object:RI::MethodSummary 
+  name: app_root=
+- !ruby/object:RI::MethodSummary 
+  name: change_output_prefix!
+- !ruby/object:RI::MethodSummary 
+  name: change_output_root!
+- !ruby/object:RI::MethodSummary 
+  name: compile_all!
+- !ruby/object:RI::MethodSummary 
+  name: compile_file!
+- !ruby/object:RI::MethodSummary 
+  name: configure
+- !ruby/object:RI::MethodSummary 
+  name: debug
+- !ruby/object:RI::MethodSummary 
+  name: default_for_add_filter
+- !ruby/object:RI::MethodSummary 
+  name: default_for_add_preamble
+- !ruby/object:RI::MethodSummary 
+  name: default_for_app_root
+- !ruby/object:RI::MethodSummary 
+  name: default_for_auto_compile
+- !ruby/object:RI::MethodSummary 
+  name: default_for_embedded_interpreter
+- !ruby/object:RI::MethodSummary 
+  name: default_for_env
+- !ruby/object:RI::MethodSummary 
+  name: default_for_exception_on_error
+- !ruby/object:RI::MethodSummary 
+  name: default_for_logger
+- !ruby/object:RI::MethodSummary 
+  name: default_for_verbose
+- !ruby/object:RI::MethodSummary 
+  name: each_framework
+- !ruby/object:RI::MethodSummary 
+  name: env
+- !ruby/object:RI::MethodSummary 
+  name: env=
+- !ruby/object:RI::MethodSummary 
+  name: hooks
+- !ruby/object:RI::MethodSummary 
+  name: invoke_hook
+- !ruby/object:RI::MethodSummary 
+  name: library_root
+- !ruby/object:RI::MethodSummary 
+  name: local_env?
+- !ruby/object:RI::MethodSummary 
+  name: logger
+- !ruby/object:RI::MethodSummary 
+  name: logger=
+- !ruby/object:RI::MethodSummary 
+  name: no_wrap!
+- !ruby/object:RI::MethodSummary 
+  name: no_wrap=
+- !ruby/object:RI::MethodSummary 
+  name: no_wrap?
+- !ruby/object:RI::MethodSummary 
+  name: on_hook
+- !ruby/object:RI::MethodSummary 
+  name: output_path_for
+- !ruby/object:RI::MethodSummary 
+  name: output_root
+- !ruby/object:RI::MethodSummary 
+  name: output_root=
+- !ruby/object:RI::MethodSummary 
+  name: root
+- !ruby/object:RI::MethodSummary 
+  name: root=
+- !ruby/object:RI::MethodSummary 
+  name: setup_defaults
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: Error
+  value: Class.new(StandardError)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CompilationError
+  value: Class.new(Error)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CompilerUnavailableError
+  value: Class.new(Error)
+full_name: Barista
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Extensions
+instance_methods: []
+
+name: Barista
+superclass: 

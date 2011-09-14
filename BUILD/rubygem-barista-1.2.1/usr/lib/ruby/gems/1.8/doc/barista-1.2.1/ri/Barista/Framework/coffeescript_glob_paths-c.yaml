@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::Framework::coffeescript_glob_paths
+is_singleton: true
+name: coffeescript_glob_paths
+params: ()
+visibility: public

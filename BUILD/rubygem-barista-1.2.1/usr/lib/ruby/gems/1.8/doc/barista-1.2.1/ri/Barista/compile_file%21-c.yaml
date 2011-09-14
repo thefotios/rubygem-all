@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Actual tasks on the barista module.
+full_name: Barista::compile_file!
+is_singleton: true
+name: compile_file!
+params: (file, force = false, silence_error = false)
+visibility: public

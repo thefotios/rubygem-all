@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::Helpers#check_for_helper_method!
+is_singleton: false
+name: check_for_helper_method!
+params: (name)
+visibility: protected

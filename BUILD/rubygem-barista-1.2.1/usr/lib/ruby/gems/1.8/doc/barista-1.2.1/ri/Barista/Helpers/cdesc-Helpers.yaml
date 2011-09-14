@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Barista::Helpers
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: check_for_helper_method!
+- !ruby/object:RI::MethodSummary 
+  name: coffeescript_include_tag
+- !ruby/object:RI::MethodSummary 
+  name: coffeescript_interpreter_js
+- !ruby/object:RI::MethodSummary 
+  name: coffeescript_tag
+- !ruby/object:RI::MethodSummary 
+  name: normalise_coffeescript_path
+name: Helpers
+superclass: 

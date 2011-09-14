@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Default configuration options
+full_name: Barista::local_env?
+is_singleton: true
+name: local_env?
+params: ()
+visibility: public

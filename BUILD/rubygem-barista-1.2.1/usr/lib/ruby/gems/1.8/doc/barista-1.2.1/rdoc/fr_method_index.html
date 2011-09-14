@@ -1,0 +1,145 @@
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+
+    Methods
+
+  -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Methods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="rdoc-style.css" type="text/css" />
+  <base target="docwin" />
+</head>
+<body>
+<div id="index">
+  <h1 class="section-bar">Methods</h1>
+  <div id="index-entries">
+    <a href="classes/Barista/Framework.html#M000104">[] (Barista::Framework)</a><br />
+    <a href="classes/Barista/Filter.html#M000084">_call (Barista::Filter)</a><br />
+    <a href="classes/Barista/Server.html#M000090">_call (Barista::Server)</a><br />
+    <a href="classes/Barista/Framework.html#M000098">all (Barista::Framework)</a><br />
+    <a href="classes/Barista.html#M000010">app_root (Barista)</a><br />
+    <a href="classes/Barista.html#M000011">app_root= (Barista)</a><br />
+    <a href="classes/Barista/Compiler.html#M000066">autocompile_file (Barista::Compiler)</a><br />
+    <a href="classes/Barista/Compiler.html#M000063">available? (Barista::Compiler)</a><br />
+    <a href="classes/Barista/Compiler.html#M000060">bin_path (Barista::Compiler)</a><br />
+    <a href="classes/Barista/Compiler.html#M000061">bin_path= (Barista::Compiler)</a><br />
+    <a href="classes/Barista/Server.html#M000089">call (Barista::Server)</a><br />
+    <a href="classes/Barista/Server/Proxy.html#M000095">call (Barista::Server::Proxy)</a><br />
+    <a href="classes/Barista/Filter.html#M000083">call (Barista::Filter)</a><br />
+    <a href="classes/Barista.html#M000031">change_output_prefix! (Barista)</a><br />
+    <a href="classes/Barista.html#M000032">change_output_root! (Barista)</a><br />
+    <a href="classes/Barista/Compiler.html#M000064">check_availability! (Barista::Compiler)</a><br />
+    <a href="classes/Barista/Helpers.html#M000053">check_for_helper_method! (Barista::Helpers)</a><br />
+    <a href="classes/Barista/Framework.html#M000119">check_options! (Barista::Framework)</a><br />
+    <a href="classes/Barista/Framework.html#M000108">coffeescript_glob_path (Barista::Framework)</a><br />
+    <a href="classes/Barista/Framework.html#M000101">coffeescript_glob_paths (Barista::Framework)</a><br />
+    <a href="classes/Barista/Helpers.html#M000050">coffeescript_include_tag (Barista::Helpers)</a><br />
+    <a href="classes/Barista/Helpers.html#M000049">coffeescript_interpreter_js (Barista::Helpers)</a><br />
+    <a href="classes/Barista/Helpers.html#M000051">coffeescript_tag (Barista::Helpers)</a><br />
+    <a href="classes/Barista/Framework.html#M000106">coffeescripts (Barista::Framework)</a><br />
+    <a href="classes/Barista/Compiler.html#M000077">compilation_error_for (Barista::Compiler)</a><br />
+    <a href="classes/Barista/Compiler.html#M000065">compile (Barista::Compiler)</a><br />
+    <a href="classes/Barista/Compiler.html#M000074">compile (Barista::Compiler)</a><br />
+    <a href="classes/Barista/Compiler.html#M000071">compile! (Barista::Compiler)</a><br />
+    <a href="classes/Barista.html#M000030">compile_all! (Barista)</a><br />
+    <a href="classes/Barista/Compiler.html#M000067">compile_as (Barista::Compiler)</a><br />
+    <a href="classes/Barista.html#M000029">compile_file! (Barista)</a><br />
+    <a href="classes/Barista.html#M000005">configure (Barista)</a><br />
+    <a href="classes/Barista/HamlFilter/CoffeeScript.html#M000057">content_type (Barista::HamlFilter::CoffeeScript)</a><br />
+    <a href="classes/Barista/Compiler.html#M000073">copyable? (Barista::Compiler)</a><br />
+    <a href="classes/Barista/Generators/InstallGenerator.html#M000043">create_initializer (Barista::Generators::InstallGenerator)</a><br />
+    <a href="classes/Barista.html#M000035">debug (Barista)</a><br />
+    <a href="classes/Barista.html#M000024">default_for_add_filter (Barista)</a><br />
+    <a href="classes/Barista.html#M000025">default_for_add_preamble (Barista)</a><br />
+    <a href="classes/Barista.html#M000021">default_for_app_root (Barista)</a><br />
+    <a href="classes/Barista.html#M000028">default_for_auto_compile (Barista)</a><br />
+    <a href="classes/Barista.html#M000027">default_for_embedded_interpreter (Barista)</a><br />
+    <a href="classes/Barista.html#M000020">default_for_env (Barista)</a><br />
+    <a href="classes/Barista.html#M000026">default_for_exception_on_error (Barista)</a><br />
+    <a href="classes/Barista.html#M000022">default_for_logger (Barista)</a><br />
+    <a href="classes/Barista.html#M000023">default_for_verbose (Barista)</a><br />
+    <a href="classes/Barista/Framework.html#M000096">default_framework (Barista::Framework)</a><br />
+    <a href="classes/Barista/Framework.html#M000097">default_framework= (Barista::Framework)</a><br />
+    <a href="classes/Barista/Extensions/InstanceMethods.html#M000042">deprecate! (Barista::Extensions::InstanceMethods)</a><br />
+    <a href="classes/Barista/Compiler.html#M000068">dirty? (Barista::Compiler)</a><br />
+    <a href="classes/Barista.html#M000033">each_framework (Barista)</a><br />
+    <a href="classes/Barista.html#M000006">env (Barista)</a><br />
+    <a href="classes/Barista.html#M000007">env= (Barista)</a><br />
+    <a href="classes/Barista/Compiler.html#M000062">execjs_runtime_call (Barista::Compiler)</a><br />
+    <a href="classes/Barista/Framework.html#M000111">exposed_coffeescripts (Barista::Framework)</a><br />
+    <a href="classes/Barista/Framework.html#M000099">exposed_coffeescripts (Barista::Framework)</a><br />
+    <a href="classes/Barista/Framework.html#M000100">exposed_javascripts (Barista::Framework)</a><br />
+    <a href="classes/Barista/Framework.html#M000112">exposed_javascripts (Barista::Framework)</a><br />
+    <a href="classes/Barista/Server.html#M000091">forbidden (Barista::Server)</a><br />
+    <a href="classes/Barista/Framework.html#M000114">full_path_for (Barista::Framework)</a><br />
+    <a href="classes/Barista/Framework.html#M000102">full_path_for (Barista::Framework)</a><br />
+    <a href="classes/Barista/Extensions/ClassMethods.html#M000038">has_boolean_options (Barista::Extensions::ClassMethods)</a><br />
+    <a href="classes/Barista/Extensions/ClassMethods.html#M000040">has_delegate_methods (Barista::Extensions::ClassMethods)</a><br />
+    <a href="classes/Barista/Extensions/ClassMethods.html#M000041">has_deprecated_methods (Barista::Extensions::ClassMethods)</a><br />
+    <a href="classes/Barista/Extensions/ClassMethods.html#M000039">has_hook_method (Barista::Extensions::ClassMethods)</a><br />
+    <a href="classes/Barista.html#M000002">hooks (Barista)</a><br />
+    <a href="classes/Barista/Extensions.html#M000037">included (Barista::Extensions)</a><br />
+    <a href="classes/Barista/Hooks.html#M000081">invoke (Barista::Hooks)</a><br />
+    <a href="classes/Barista.html#M000004">invoke_hook (Barista)</a><br />
+    <a href="classes/Barista/Framework.html#M000109">javascript_glob_path (Barista::Framework)</a><br />
+    <a href="classes/Barista/Framework.html#M000107">javascripts (Barista::Framework)</a><br />
+    <a href="classes/Barista/Compiler.html#M000058">js_path (Barista::Compiler)</a><br />
+    <a href="classes/Barista/Compiler.html#M000059">js_path= (Barista::Compiler)</a><br />
+    <a href="classes/Barista.html#M000001">library_root (Barista)</a><br />
+    <a href="classes/Barista.html#M000019">local_env? (Barista)</a><br />
+    <a href="classes/Barista.html#M000008">logger (Barista)</a><br />
+    <a href="classes/Barista.html#M000009">logger= (Barista)</a><br />
+    <a href="classes/Barista/RakeTask.html#M000087">method_missing (Barista::RakeTask)</a><br />
+    <a href="classes/Barista/Compiler.html#M000070">new (Barista::Compiler)</a><br />
+    <a href="classes/Barista/Hooks.html#M000079">new (Barista::Hooks)</a><br />
+    <a href="classes/Barista/Framework.html#M000105">new (Barista::Framework)</a><br />
+    <a href="classes/Barista/RakeTask.html#M000085">new (Barista::RakeTask)</a><br />
+    <a href="classes/Barista/Filter.html#M000082">new (Barista::Filter)</a><br />
+    <a href="classes/Barista/Server.html#M000088">new (Barista::Server)</a><br />
+    <a href="classes/Barista/Server/Proxy.html#M000094">new (Barista::Server::Proxy)</a><br />
+    <a href="classes/Barista.html#M000017">no_wrap! (Barista)</a><br />
+    <a href="classes/Barista.html#M000018">no_wrap= (Barista)</a><br />
+    <a href="classes/Barista.html#M000016">no_wrap? (Barista)</a><br />
+    <a href="classes/Barista/Helpers.html#M000052">normalise_coffeescript_path (Barista::Helpers)</a><br />
+    <a href="classes/Barista/Server.html#M000092">not_found (Barista::Server)</a><br />
+    <a href="classes/Barista/Hooks.html#M000080">on (Barista::Hooks)</a><br />
+    <a href="classes/Barista.html#M000003">on_hook (Barista)</a><br />
+    <a href="classes/Barista/Framework.html#M000117">output_path_for (Barista::Framework)</a><br />
+    <a href="classes/Barista.html#M000034">output_path_for (Barista)</a><br />
+    <a href="classes/Barista/Framework.html#M000113">output_prefix= (Barista::Framework)</a><br />
+    <a href="classes/Barista.html#M000014">output_root (Barista)</a><br />
+    <a href="classes/Barista/Framework.html#M000115">output_root (Barista::Framework)</a><br />
+    <a href="classes/Barista.html#M000015">output_root= (Barista)</a><br />
+    <a href="classes/Barista/Framework.html#M000116">output_root= (Barista::Framework)</a><br />
+    <a href="classes/Barista/Compiler.html#M000076">preamble (Barista::Compiler)</a><br />
+    <a href="classes/Barista/Framework.html#M000103">register (Barista::Framework)</a><br />
+    <a href="classes/Barista/Integration/Sinatra.html#M000047">registered (Barista::Integration::Sinatra)</a><br />
+    <a href="classes/Barista/Framework.html#M000118">remove_prefix (Barista::Framework)</a><br />
+    <a href="classes/Barista/HamlFilter/CoffeeScript.html#M000056">render_type (Barista::HamlFilter::CoffeeScript)</a><br />
+    <a href="classes/Barista/HamlFilter/CoffeeScript.html#M000055">render_with_options (Barista::HamlFilter::CoffeeScript)</a><br />
+    <a href="classes/Barista/RakeTask.html#M000086">respond_to? (Barista::RakeTask)</a><br />
+    <a href="classes/Barista/Server.html#M000093">response_for_text (Barista::Server)</a><br />
+    <a href="classes/Barista.html#M000012">root (Barista)</a><br />
+    <a href="classes/Barista.html#M000013">root= (Barista)</a><br />
+    <a href="classes/Barista/Compiler.html#M000075">save (Barista::Compiler)</a><br />
+    <a href="classes/Barista/Integration.html#M000044">setup (Barista::Integration)</a><br />
+    <a href="classes/Barista/HamlFilter.html#M000054">setup (Barista::HamlFilter)</a><br />
+    <a href="classes/Barista/Integration/Rails2.html#M000046">setup (Barista::Integration::Rails2)</a><br />
+    <a href="classes/Barista/Compiler.html#M000078">setup_compiler_context (Barista::Compiler)</a><br />
+    <a href="classes/Barista/Compiler.html#M000069">setup_default_error_logger (Barista::Compiler)</a><br />
+    <a href="classes/Barista/Integration/Sinatra.html#M000048">setup_defaults (Barista::Integration::Sinatra)</a><br />
+    <a href="classes/Barista.html#M000036">setup_defaults (Barista)</a><br />
+    <a href="classes/Barista/Integration.html#M000045">setup_rails (Barista::Integration)</a><br />
+    <a href="classes/Barista/Framework.html#M000110">short_name (Barista::Framework)</a><br />
+    <a href="classes/Barista/Compiler.html#M000072">to_js (Barista::Compiler)</a><br />
+  </div>
+</div>
+</body>
+</html>

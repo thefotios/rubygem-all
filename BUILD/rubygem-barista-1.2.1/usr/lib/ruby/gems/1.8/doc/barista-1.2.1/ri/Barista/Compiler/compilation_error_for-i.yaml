@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::Compiler#compilation_error_for
+is_singleton: false
+name: compilation_error_for
+params: (location, message)
+visibility: protected
