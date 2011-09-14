@@ -1,0 +1,33 @@
+Directions saved here for posterity:
+
+I am assuming you have the necessary build tools installed (if not, yum install rpmdevtools) and have already created an RPM build environment, eg:
+
+~/rpmbuild
+|-- BUILD
+|-- RPMS
+|-- SOURCES
+|-- SPECS
+`-- SRPMS
+
+First, make sure gem2rpm is installed:
+
+yum install rubygem-gem2rpm
+
+Then, grab the gem you want to convert to an RPM:
+
+cd ~/rpmbuild/SOURCES
+gem fetch capistrano
+
+This will dump the gem file in the current directory, in this case: capistrano-2.5.14.gem.
+
+Next, create a spec file:
+
+gem2rpm capistrano-2.5.14.gem  > ../SPECS/rubygem-capistrano.spec
+
+Finally, build the RPM(s):
+
+rpmbuild -ba ../SPECS/rubygem-capistrano.spec
+
+
+Originally found at:
+http://yo61.com/building-rpms-from-ruby-gems.html
