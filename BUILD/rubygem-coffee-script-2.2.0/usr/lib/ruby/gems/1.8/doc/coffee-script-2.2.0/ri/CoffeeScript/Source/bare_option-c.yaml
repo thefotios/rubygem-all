@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: CoffeeScript::Source::bare_option
+is_singleton: true
+name: bare_option
+params: ()
+visibility: public
