@@ -2,12 +2,12 @@
 
 I am assuming you have the necessary build tools installed (if not, yum install rpmdevtools) and have already created an RPM build environment, eg:
 
-~/rpmbuild
-|-- BUILD
-|-- RPMS
-|-- SOURCES
-|-- SPECS
-`-- SRPMS
+> ~/rpmbuild
+>  |-- BUILD
+>  |-- RPMS
+>  |-- SOURCES
+>  |-- SPECS
+>  `-- SRPMS
 
 First, make sure gem2rpm is installed:
 
@@ -29,4 +29,4 @@ Finally, build the RPM(s):
 > rpmbuild -ba ../SPECS/rubygem-capistrano.spec
 
 
-[Originally found at](http://yo61.com/building-rpms-from-ruby-gems.html)
+[Originally found here](http://yo61.com/building-rpms-from-ruby-gems.html)
