@@ -19,15 +19,20 @@ def find_deps(deps, name)
   deps << name
   gem = Gem.searcher.find(name)
 
-  @yum[:dependencies][name] = gem ? gem.dependencies.collect{|x| x.name} : nil
+  if gem 
+    my_deps = gem.dependencies.collect{|x| 
+      x.name if x.type == :runtime
+    }.compact
 
-  if ( gem && gem.dependencies ) 
-    gem.dependencies.each do |x| 
-      unless deps.include?(x.name)
-        find_deps(deps, x.name)
+    @yum[:dependencies][name] = my_deps
+
+    my_deps.each { |x|
+      unless deps.include?(x)
+        find_deps(deps, x)
       end
-    end
+    }
   end
+
   deps
 end
 
@@ -46,8 +51,10 @@ end
 
 # Find all of the dependencies
 # These print to STDERR so that the YAML dumped to STDOUT can be piped
-STDERR.print "Checking dependencies..."
-find_deps(deps, ARGV[0])
+STDERR.print "Checking dependencies for #{ARGV.join(', ')}..."
+ARGV.each do |gem|
+  find_deps(deps, gem)
+end
 STDERR.puts "found #{deps.length}"
 
 # Create progress bar
@@ -70,20 +77,20 @@ threads.each{|t| t.join }
 @pbar.finish
 
 # Remove any gems that don't have any dependencies
-@yum[:dependencies].delete_if{|k,v| v.nil?}
+[@yum,@yum[:dependencies]].each{|a| a.delete_if{|k,v| v.nil? || v.empty?}}
 
-# Prefix the depencie name with the name it has in YUM
+# Prefix the dependency name with the name it has in YUM
 @yum[:dependencies ] = @yum[:dependencies].map do |name,deps|
   {
     name => deps.map{|dep|
-      (case
-      when @yum[:rubygem].include?(dep)
-        "rubygem-"
-      when @yum[:ruby].include?(dep)
-        "ruby-"
-      else
-        "???-"
-      end) + dep
+      prefix = '???'
+      %w(rubygem ruby).each do |p|
+        p = p.to_sym
+        if @yum[p] && @yum[p].include?(dep)
+          prefix = p
+        end
+      end
+      "#{prefix}-#{dep}"
     }.sort
   }
 end
