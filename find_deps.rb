@@ -9,7 +9,8 @@ require 'progressbar'
 @yum = {
   :rubygem => [],
   :ruby => [],
-  :none => []
+  :none => [],
+  :dependencies => {}
 }
 deps = []
 @regex = /.*N\/S Matched.*/
@@ -18,6 +19,9 @@ threads = []
 def find_deps(deps, name) 
   deps << name
   gem = Gem.searcher.find(name)
+
+  @yum[:dependencies][name] = gem ? gem.dependencies.collect{|x| x.name} : nil
+
   if ( gem && gem.dependencies ) 
     gem.dependencies.each do |x| 
       unless deps.include?(x.name)
@@ -40,9 +44,10 @@ def search(prefix,name)
 end
 
 # Find all of the dependencies
-print "Checking dependencies..."
+# These print to STDERR so that the YAML dumped to STDOUT can be piped
+STDERR.print "Checking dependencies..."
 find_deps(deps, ARGV[0])
-puts "found #{deps.length}"
+STDERR.puts "found #{deps.length}"
 
 # Create progress bar
 @pbar = ProgressBar.new('Checking yum',deps.length)
@@ -62,4 +67,23 @@ end
 
 threads.each{|t| t.join }
 @pbar.finish
+
+# Remove any gems that don't have any dependencies
+@yum[:dependencies].delete_if{|k,v| v.nil?}
+
+# Prefix the depencie name with the name it has in YUM
+@yum[:dependencies ] = @yum[:dependencies].map do |name,deps|
+  {
+    name => deps.map{|dep|
+      (case
+      when @yum[:rubygem].include?(dep)
+        "rubygem-"
+      when @yum[:ruby].include?(dep)
+        "ruby-"
+      else
+        "???-"
+      end) + dep
+    }.sort
+  }
+end
 puts YAML.dump @yum 

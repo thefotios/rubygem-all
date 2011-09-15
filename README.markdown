@@ -47,21 +47,46 @@ It then dumps a hash like:
     :rubygem: 
     - barista
     - minitest
-    - flexmock
     - rake
+    - flexmock
     - rspec
     :ruby: 
     - rdoc
     - rr
     :none: 
+    - multi_json
+    - coffee-script
     - execjs
     - coffee-script-source
-    - coffee-script
-    - jeweler
-    - multi_json
     - session
-    - mustang
     - simplecov
-    - therubyracer
+    - mustang
     - johnson
     - therubyrhino
+    - jeweler
+    - therubyracer
+    :dependencies: 
+    - rake: 
+      - ???-session
+      - rubygem-flexmock
+      - rubygem-minitest
+    - coffee-script: 
+      - ???-coffee-script-source
+      - ???-execjs
+    - barista: 
+      - ???-coffee-script
+      - ???-jeweler
+      - ruby-rr
+      - rubygem-rspec
+    - execjs: 
+      - ???-johnson
+      - ???-multi_json
+      - ???-mustang
+      - ???-therubyracer
+      - ???-therubyrhino
+      - rubygem-rake
+    - multi_json: 
+      - ???-simplecov
+      - ruby-rdoc
+      - rubygem-rake
+      - rubygem-rspec
