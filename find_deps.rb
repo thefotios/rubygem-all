@@ -4,6 +4,44 @@ require 'yaml'
 require 'rubygems'
 require 'thread'
 require 'progressbar'
+require 'optparse'
+
+# Parse options
+options = {
+  :builddir => '~/builddir'
+}
+OptionParser.new do |opts|
+
+  opts.banner = "Usage: find_deps.rb [options] gem_name [gem_name ...]"
+
+  opts.on("-v", "--verbose", "Run verbosely") do |v|
+    options[:verbose] = v
+  end
+
+  opts.on("-f", "--fetch", "Fetch missing gems") do |f|
+    options[:fetch] = f
+  end
+
+  opts.on("-b", "--builddir BUILDDIR", "RPM build envorinment (default is: #{options[:builddir]})") do |b|
+    options[:builddir] = b
+  end
+
+  opts.on("-d", "--dev", "Also check development dependencies") do |f|
+    options[:dev] = f
+  end
+
+  opts.separator ""
+  opts.separator "Common options:"
+
+  #No argument, shows at tail.  This will print an options summary.
+  # Try it and see!
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit
+  end
+end.parse!(ARGV)
+
+@options = options
 
 @mutex = Mutex.new
 @yum = {
@@ -21,7 +59,7 @@ def find_deps(deps, name)
 
   if gem 
     my_deps = gem.dependencies.collect{|x| 
-      x.name if x.type == :runtime
+      x.name if (@options[:dev] || x.type == :runtime)
     }.compact
 
     @yum[:dependencies][name] = my_deps
