@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>encode_unicode_codepoints (ExecJS::ExternalRuntime::Context)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/execjs/external_runtime.rb, line 76</span>
+          <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">encode_unicode_codepoints</span>(<span class="ruby-identifier">str</span>)
+            <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/([\xC0-\xDF][\x80-\xBF]|
+                       [\xE0-\xEF][\x80-\xBF]{2}|
+                       [\xF0-\xF7][\x80-\xBF]{3})+/n</span><span class="ruby-identifier">x</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ch</span><span class="ruby-operator">|</span>
+              <span class="ruby-value str">&quot;\\u%04x&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">ch</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-value str">&quot;U*&quot;</span>)
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: ExecJS::ExternalRuntime#which
+is_singleton: false
+name: which
+params: (command)
+visibility: protected

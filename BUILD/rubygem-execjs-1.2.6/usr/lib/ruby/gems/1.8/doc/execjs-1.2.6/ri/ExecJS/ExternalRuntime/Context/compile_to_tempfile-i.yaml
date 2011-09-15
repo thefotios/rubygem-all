@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: tempfile
+comment: 
+full_name: ExecJS::ExternalRuntime::Context#compile_to_tempfile
+is_singleton: false
+name: compile_to_tempfile
+params: (source) {|tempfile| ...}
+visibility: protected
