@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::Server#response_for_text
+is_singleton: false
+name: response_for_text
+params: (content, content_type = 'text/javascript', modified_at = nil)
+visibility: protected

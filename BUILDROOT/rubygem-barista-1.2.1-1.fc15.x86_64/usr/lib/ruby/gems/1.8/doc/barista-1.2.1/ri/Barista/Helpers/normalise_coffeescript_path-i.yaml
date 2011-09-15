@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::Helpers#normalise_coffeescript_path
+is_singleton: false
+name: normalise_coffeescript_path
+params: (path)
+visibility: protected

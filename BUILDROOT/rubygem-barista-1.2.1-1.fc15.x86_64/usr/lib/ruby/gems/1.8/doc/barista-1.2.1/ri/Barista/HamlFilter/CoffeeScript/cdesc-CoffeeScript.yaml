@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Barista::HamlFilter::CoffeeScript
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: content_type
+- !ruby/object:RI::MethodSummary 
+  name: render_type
+- !ruby/object:RI::MethodSummary 
+  name: render_with_options
+name: CoffeeScript
+superclass: 

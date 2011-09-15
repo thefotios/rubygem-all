@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::Extensions::ClassMethods#has_boolean_options
+is_singleton: false
+name: has_boolean_options
+params: (*names)
+visibility: public

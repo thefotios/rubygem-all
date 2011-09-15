@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::default_for_auto_compile
+is_singleton: true
+name: default_for_auto_compile
+params: ()
+visibility: public

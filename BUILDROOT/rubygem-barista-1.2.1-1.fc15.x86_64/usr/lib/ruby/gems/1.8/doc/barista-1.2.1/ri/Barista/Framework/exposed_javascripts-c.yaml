@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::Framework::exposed_javascripts
+is_singleton: true
+name: exposed_javascripts
+params: ()
+visibility: public

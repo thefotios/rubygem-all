@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: self if block_given?
+comment: 
+full_name: Barista::configure
+is_singleton: true
+name: configure
+params: () {|self if block_given?| ...}
+visibility: public

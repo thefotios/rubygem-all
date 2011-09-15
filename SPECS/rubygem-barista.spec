@@ -60,11 +60,10 @@ cp -a .%{gemdir}/* \
 
 
 %files
-%{geminstdir}
-
+%dir %{geminstdir}
+%{geminstdir}/lib
 %{gemdir}/cache/%{gemname}-%{version}.gem
 %{gemdir}/specifications/%{gemname}-%{version}.gemspec
-
 
 %files doc
 %doc %{gemdir}/doc/%{gemname}-%{version}
@@ -73,5 +72,5 @@ cp -a .%{gemdir}/* \
 
 
 %changelog
-                 * Wed Sep 14 2011 Fotios Lindiakos (fotios@redhat.com) - 1.2.1-1
+* Thu Sep 15 2011 Fotios Lindiakos (fotios at redhat.com) - 1.2.1-1
 - Initial package

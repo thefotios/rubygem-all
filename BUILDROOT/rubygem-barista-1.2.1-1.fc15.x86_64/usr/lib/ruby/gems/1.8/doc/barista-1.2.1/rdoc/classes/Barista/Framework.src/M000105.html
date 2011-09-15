@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Barista::Framework)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/barista/framework.rb, line 60</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">root</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">output_prefix</span> = <span class="ruby-keyword kw">nil</span>)
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+        <span class="ruby-constant">Barista</span>.<span class="ruby-identifier">deprecate!</span> <span class="ruby-keyword kw">self</span>, <span class="ruby-value str">&quot;initialize(name, root = nil, output_prefix = nil)&quot;</span>, <span class="ruby-value str">&quot;Please use the option syntax instead.&quot;</span>
+        <span class="ruby-identifier">options</span> = {
+          <span class="ruby-identifier">:name</span>          =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>,
+          <span class="ruby-identifier">:root</span>          =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">root</span>,
+          <span class="ruby-identifier">:output_prefix</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">output_prefix</span>
+        }
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-comment cmt"># actually setup the framework.</span>
+      <span class="ruby-identifier">check_options!</span> <span class="ruby-identifier">options</span>, <span class="ruby-identifier">:name</span>, <span class="ruby-identifier">:root</span>
+      <span class="ruby-ivar">@name</span>            = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:name</span>].<span class="ruby-identifier">to_s</span>
+      <span class="ruby-ivar">@output_prefix</span>   = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:output_prefix</span>]
+      <span class="ruby-ivar">@framework_root</span>  = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:root</span>].<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">output_root</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:output_root</span>]
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

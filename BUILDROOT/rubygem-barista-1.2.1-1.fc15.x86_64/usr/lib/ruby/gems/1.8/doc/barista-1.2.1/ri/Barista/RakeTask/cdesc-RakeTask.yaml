@@ -1,0 +1,42 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: environment
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: input_directory
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: namespace
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: output_directory
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: rails
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: task_name
+  rw: W
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Barista::RakeTask
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: method_missing
+- !ruby/object:RI::MethodSummary 
+  name: respond_to?
+name: RakeTask
+superclass: "::Rake::TaskLib"

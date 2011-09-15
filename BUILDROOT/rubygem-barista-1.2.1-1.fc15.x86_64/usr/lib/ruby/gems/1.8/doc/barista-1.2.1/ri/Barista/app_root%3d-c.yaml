@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::app_root=
+is_singleton: true
+name: app_root=
+params: (value)
+visibility: public

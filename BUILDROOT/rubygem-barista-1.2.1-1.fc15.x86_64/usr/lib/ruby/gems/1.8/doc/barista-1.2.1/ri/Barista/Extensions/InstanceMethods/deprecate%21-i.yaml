@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::Extensions::InstanceMethods#deprecate!
+is_singleton: false
+name: deprecate!
+params: (object, method, other = nil)
+visibility: public

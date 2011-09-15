@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>setup (Barista::Integration::Rails2)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/barista/integration/rails2.rb, line 5</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">setup</span>
+        <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Dispatcher</span>.<span class="ruby-identifier">middleware</span>.<span class="ruby-identifier">tap</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">middleware</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">middleware</span>.<span class="ruby-identifier">use</span> <span class="ruby-constant">Barista</span><span class="ruby-operator">::</span><span class="ruby-constant">Filter</span> <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Barista</span>.<span class="ruby-identifier">add_filter?</span>
+          <span class="ruby-identifier">middleware</span>.<span class="ruby-identifier">use</span> <span class="ruby-constant">Barista</span><span class="ruby-operator">::</span><span class="ruby-constant">Server</span><span class="ruby-operator">::</span><span class="ruby-constant">Proxy</span>
+        <span class="ruby-keyword kw">end</span>
+        <span class="ruby-constant">Barista</span>.<span class="ruby-identifier">setup_defaults</span>
+        <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">helper</span> <span class="ruby-constant">Barista</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::Compiler#setup_compiler_context
+is_singleton: false
+name: setup_compiler_context
+params: (context)
+visibility: protected

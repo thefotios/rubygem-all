@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::Compiler::autocompile_file
+is_singleton: true
+name: autocompile_file
+params: (file, force = false, silence_error = false)
+visibility: public

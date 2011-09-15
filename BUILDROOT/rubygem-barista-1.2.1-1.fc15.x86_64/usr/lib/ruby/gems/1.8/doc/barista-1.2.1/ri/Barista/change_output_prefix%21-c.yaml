@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::change_output_prefix!
+is_singleton: true
+name: change_output_prefix!
+params: (framework, prefix = nil)
+visibility: public

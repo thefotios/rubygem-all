@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>compile (Barista::Compiler)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/barista/compiler.rb, line 127</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">compile</span>(<span class="ruby-identifier">script</span>, <span class="ruby-identifier">where</span> = <span class="ruby-value str">'inline'</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">copyable?</span>(<span class="ruby-identifier">where</span>)
+        <span class="ruby-identifier">out</span> = <span class="ruby-identifier">script</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-constant">Barista</span>.<span class="ruby-identifier">invoke_hook</span> <span class="ruby-identifier">:before_compilation</span>, <span class="ruby-identifier">where</span>
+        <span class="ruby-identifier">out</span> = <span class="ruby-constant">CoffeeScript</span>.<span class="ruby-identifier">compile</span> <span class="ruby-identifier">script</span>, <span class="ruby-identifier">:bare</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Barista</span>.<span class="ruby-identifier">bare?</span>
+        <span class="ruby-constant">Barista</span>.<span class="ruby-identifier">invoke_hook</span> <span class="ruby-identifier">:compiled</span>, <span class="ruby-identifier">where</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">out</span>
+    <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">ExecJS</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-constant">Barista</span>.<span class="ruby-identifier">invoke_hook</span> <span class="ruby-identifier">:compilation_failed</span>, <span class="ruby-identifier">where</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Barista</span>.<span class="ruby-identifier">exception_on_error?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:silence</span>]
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">ExecJS</span><span class="ruby-operator">::</span><span class="ruby-constant">ProgramError</span>)
+          <span class="ruby-identifier">where_within_app</span> = <span class="ruby-identifier">where</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-node">/#{Regexp.escape(Barista.app_root.to_s)}\/?/</span>, <span class="ruby-value str">''</span>)
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">CompilationError</span>, <span class="ruby-node">&quot;Error: In #{where_within_app}, #{e.message}&quot;</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">CompilationError</span>, <span class="ruby-node">&quot;CoffeeScript encountered an error compiling #{where}: #{e.message}&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">compilation_error_for</span> <span class="ruby-identifier">where</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

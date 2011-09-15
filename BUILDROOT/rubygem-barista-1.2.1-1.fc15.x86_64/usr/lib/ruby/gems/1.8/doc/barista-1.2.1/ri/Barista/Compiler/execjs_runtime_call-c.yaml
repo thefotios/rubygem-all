@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Barista::Compiler::execjs_runtime_call
+is_singleton: true
+name: execjs_runtime_call
+params: (method, *args)
+visibility: public
