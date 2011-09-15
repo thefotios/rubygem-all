@@ -41,6 +41,10 @@ Right now, it looks for:
  * rubygem-
  * ruby-
 
+## The output
+
+Note that the output is a valid YAML doc. I just split it up here so that I could describe it inline.
+
 **A list of the gems and whether they were found and what their prefix was**
 
     --- 
@@ -66,7 +70,7 @@ Right now, it looks for:
     - session
     - mustang
 
-**This next part of the hash lists any gems that had dependencies and what their package name is (if it exists already**
+**This next part of the hash lists any gems that had dependencies and what their package name is (if it exists already)**
 
     :dependencies: 
     - rake: 
