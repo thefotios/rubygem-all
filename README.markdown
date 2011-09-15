@@ -41,6 +41,21 @@ Right now, it looks for:
  * rubygem-
  * ruby-
 
+## Usage
+
+**fetch and builddir are not implemented yet**
+
+    [fotios@fotios rubygem-all]$ ruby find_deps.rb -h
+    Usage: find_deps.rb [options] gem_name [gem_name ...]
+      -v, --verbose                    Run verbosely
+      -f, --fetch                      Fetch missing gems
+      -b, --builddir BUILDDIR          RPM build envorinment (default is: ~/builddir)
+      -d, --dev                        Also check development dependencies
+
+    Common options:
+      -h, --help                       Show this message
+
+
 ## The output
 
 Note that the output is a valid YAML doc. I just split it up here so that I could describe it inline.
