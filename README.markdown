@@ -1,8 +1,14 @@
-# Directions saved here for posterity
+# makerpm.sh
+## What it does
+This function generates the appropriate spec files and runs rpmbuild. 
+In the process, it opens vim to let you edit your spec file. In there, you should run: `rpmbuild -ba %` so that you can make sure the build will succeed (for instance making sure you have included all files.
 
-<script src="http://gist-it.appspot.com/github/fotioslindiakos/rubygem-all/raw/master/makerpm.sh"></script>
+## Usage
+    bash makerpm.sh [gem_name]
 
-# Using find_deps.rb
+
+# find_deps.rb
+## What it does
 This script allows use to recursively check all dependencies of a gem.
 
 It then checks yum for those dependencies.
