@@ -1,0 +1,31 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: REQUIREMENT_MAP
+  value: "[     [\"yajl\", :yajl],     [\"json\", :json_gem],     [\"json/pure\", :json_pure]"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VERSION
+  value: "\"1.0.3\""
+full_name: MultiJson
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: decode
+- !ruby/object:RI::MethodSummary 
+  name: default_engine
+- !ruby/object:RI::MethodSummary 
+  name: encode
+- !ruby/object:RI::MethodSummary 
+  name: engine
+- !ruby/object:RI::MethodSummary 
+  name: engine=
+name: MultiJson
+superclass: 

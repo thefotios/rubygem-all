@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Decodes unicode character u from UTF-8 bytes in string s at position i. Returns u and the number of bytes read.
+full_name: OkJson#uchardec
+is_singleton: false
+name: uchardec
+params: (s, i)
+visibility: public
