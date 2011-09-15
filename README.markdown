@@ -37,6 +37,7 @@ This script allows use to recursively check all dependencies of a gem.
 It then checks yum for those dependencies.
 
 Right now, it looks for:
+
  * rubygem-
  * ruby-
 
