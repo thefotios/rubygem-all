@@ -41,10 +41,7 @@ Right now, it looks for:
  * rubygem-
  * ruby-
 
-The output is a valid YAML dump for your piping pleasure. Here is what that output looks like (split up for illustration purposes).
-
 **A list of the gems and whether they were found and what their prefix was**
-
     --- 
     :rubygem: 
     - flexmock
