@@ -1,3 +1,11 @@
+## 
+#  Bash script for creating rpm from Gemfile
+#
+#  Author: Fotios Lindiakos (fotios at redhat.com)
+#
+#  Process derived from: http://yo61.com/building-rpms-from-ruby-gems.html
+##
+
 function makerpm() {
   GEMNAME=$@;
   RPMDIR="$HOME/rpmbuild"
