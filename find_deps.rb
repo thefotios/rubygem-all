@@ -13,7 +13,6 @@ require 'progressbar'
   :dependencies => {}
 }
 deps = []
-@regex = /.*N\/S Matched.*/
 threads = []
 
 def find_deps(deps, name) 
@@ -40,7 +39,9 @@ def add_to_hash(location,name)
 end
 
 def search(prefix,name)
-  !(@regex.match(`yum search -q #{prefix}-#{name} 2> /dev/null`).nil?)
+  combined = "#{prefix}-#{name}"
+  regex = Regexp.compile("^#{combined}\.",Regexp::MULTILINE)
+  !(regex.match(`yum search -q --disablerepo=li #{combined} 2> /dev/null`).nil?)
 end
 
 # Find all of the dependencies

@@ -41,30 +41,35 @@ Right now, it looks for:
  * rubygem-
  * ruby-
 
-It then dumps a hash like:
+The output is a valid YAML dump for your piping pleasure. Here is what that output looks like (split up for illustration purposes).
+
+**A list of the gems and whether they were found and what their prefix was**
 
     --- 
     :rubygem: 
-    - barista
+    - flexmock
     - minitest
     - rake
-    - flexmock
     - rspec
     :ruby: 
     - rdoc
-    - rr
     :none: 
     - multi_json
+    - rr
+    - therubyrhino
     - coffee-script
+    - barista
     - execjs
     - coffee-script-source
-    - session
-    - simplecov
-    - mustang
     - johnson
-    - therubyrhino
-    - jeweler
+    - simplecov
     - therubyracer
+    - jeweler
+    - session
+    - mustang
+
+**This next part of the hash lists any gems that had dependencies and what their package name is (if it exists already**
+
     :dependencies: 
     - rake: 
       - ???-session
@@ -76,7 +81,7 @@ It then dumps a hash like:
     - barista: 
       - ???-coffee-script
       - ???-jeweler
-      - ruby-rr
+      - ???-rr
       - rubygem-rspec
     - execjs: 
       - ???-johnson
