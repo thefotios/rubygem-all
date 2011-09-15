@@ -30,3 +30,37 @@ Finally, build the RPM(s):
 
 
 [Originally found here](http://yo61.com/building-rpms-from-ruby-gems.html)
+
+# Using find_deps.rb
+This script allows use to recursively check all dependencies of a gem.
+
+It then checks yum for those dependencies.
+
+Right now, it looks for:
+* rubygem-
+* ruby-
+
+It then dumps a hash like:
+
+    --- 
+    :rubygem: 
+    - barista
+    - minitest
+    - flexmock
+    - rake
+    - rspec
+    :ruby: 
+    - rdoc
+    - rr
+    :none: 
+    - execjs
+    - coffee-script-source
+    - coffee-script
+    - jeweler
+    - multi_json
+    - session
+    - mustang
+    - simplecov
+    - therubyracer
+    - johnson
+    - therubyrhino
