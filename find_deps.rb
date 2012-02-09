@@ -55,7 +55,7 @@ threads = []
 
 def find_deps(deps, name) 
   deps << name
-  gem = Gem.searcher.find(name)
+  gem = Gem::Specification.find_by_name(name)
 
   if gem 
     my_deps = gem.dependencies.collect{|x| 
