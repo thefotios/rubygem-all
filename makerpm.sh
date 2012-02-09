@@ -16,12 +16,10 @@ function makerpm() {
 
   # Save the current directory and move
   pushd "$RPMDIR/SOURCES"
-
-  # Get the gemfile
-  gem fetch $GEMNAME;
-
   # Generate base specfile
-  gem2rpm "$GEMNAME"* > $SPECNAME;
+  gem2rpm --fetch --o $SPECNAME $GEMNAME;
+  # Go back to the directory
+  popd
 
   # Edit the spec.
   # Inside vim run this before quitting to make sure build succeeds: 
@@ -32,11 +30,9 @@ function makerpm() {
   rpmbuild -ba $SPECNAME
 
   # Add and commit back to the git repo
-  git add "$RPMDIR"/**/*"$GEMNAME"* "$RPMDIR"/**/*/*"$GEMNAME"*
-  git commit -am "Added $GEMNAME";
+  #git add "$RPMDIR"/**/*"$GEMNAME"* "$RPMDIR"/**/*/*"$GEMNAME"*
+  #git commit -am "Added $GEMNAME";
 
-  # Go back to the directory
-  popd
 }
 
 makerpm $@
