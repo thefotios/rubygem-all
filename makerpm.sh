@@ -30,8 +30,8 @@ function makerpm() {
   rpmbuild -ba --clean $SPECNAME
 
   # Add and commit back to the git repo
-  #git add "$RPMDIR"/**/*"$GEMNAME"* "$RPMDIR"/**/*/*"$GEMNAME"*
-  #git commit -am "Added $GEMNAME";
+  git add RPMS SOURCES SPECS SRPMS
+  git commit -m "Added $GEMNAME";
 
 }
 
