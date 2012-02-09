@@ -10,7 +10,7 @@ Name: rubygem-%{gemname}
 Version: 1.2.0
 Release: 1%{?dist}
 Group: Development/Languages
-License: GPLv2+ or Ruby
+License: MIT
 URL: http://datamapper.org
 Source0: http://rubygems.org/gems/%{gemname}-%{version}.gem
 Requires: ruby(abi) = %{rubyabi}
