@@ -8,7 +8,7 @@
 
 function makerpm() {
   GEMNAME=$@;
-  RPMDIR="$HOME/rpmbuild"
+  RPMDIR="rpmbuild"
   SPECNAME="$RPMDIR/SPECS/rubygem-$GEMNAME.spec";
 
   # Create the required directories
