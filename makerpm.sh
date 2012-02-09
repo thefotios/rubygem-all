@@ -27,7 +27,7 @@ function makerpm() {
   vim $SPECNAME;
 
   # Run a final build just to make sure it works
-  rpmbuild -ba $SPECNAME
+  rpmbuild -ba --clean $SPECNAME
 
   # Add and commit back to the git repo
   #git add "$RPMDIR"/**/*"$GEMNAME"* "$RPMDIR"/**/*/*"$GEMNAME"*
