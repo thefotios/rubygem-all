@@ -1,0 +1,5 @@
+[local]
+name=local
+baseurl=file:///root/packages
+enabled=1
+gpgcheck=0 
