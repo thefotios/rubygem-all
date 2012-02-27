@@ -1,4 +1,4 @@
-# Generated from coffee-script-source-1.1.2.gem by gem2rpm -*- rpm-spec -*-
+# Generated from coffee-script-source-1.2.0.gem by gem2rpm -*- rpm-spec -*-
 %global gemname coffee-script-source
 
 %global gemdir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
@@ -7,7 +7,7 @@
 
 Summary: The CoffeeScript Compiler
 Name: rubygem-%{gemname}
-Version: 1.1.2
+Version: 1.2.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
@@ -24,7 +24,7 @@ Provides: rubygem(%{gemname}) = %{version}
 
 %description
 CoffeeScript is a little language that compiles into JavaScript.
-\     Underneath all of those embarrassing braces and semicolons,
+Underneath all of those embarrassing braces and semicolons,
 JavaScript has always had a gorgeous object model at its heart.
 CoffeeScript is an attempt to expose the good parts of JavaScript
 in a simple way.
@@ -57,7 +57,7 @@ cp -a .%{gemdir}/* \
 %files
 %dir %{geminstdir}
 %{geminstdir}/lib
-%{gemdir}/cache/%{gemname}-%{version}.gem
+%exclude %{gemdir}/cache/%{gemname}-%{version}.gem
 %{gemdir}/specifications/%{gemname}-%{version}.gemspec
 
 %files doc
@@ -65,5 +65,5 @@ cp -a .%{gemdir}/* \
 
 
 %changelog
-* Thu Sep 15 2011 Fotios Lindiakos (fotios at redhat.com) - 1.1.2-1
+* Mon Feb 27 2012 Fotios Lindiakos <fotios@redhat.com> - 1.2.0-1
 - Initial package
