@@ -3,24 +3,24 @@
 
 %global gemdir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
 %global geminstdir %{gemdir}/gems/%{gemname}-%{version}
-%global rubyabi 1.8
+%global rubyabi 1.9.3
 
-Summary: The CoffeeScript Compiler
-Name: rubygem-%{gemname}
-Version: 1.2.0
-Release: 1%{?dist}
-Group: Development/Languages
-License: MIT
-URL: http://jashkenas.github.com/coffee-script/
-Source0: http://rubygems.org/gems/%{gemname}-%{version}.gem
-Requires: ruby(abi) = %{rubyabi}
-Requires: ruby(rubygems) 
-Requires: ruby 
-BuildRequires: ruby(abi) = %{rubyabi}
-BuildRequires: ruby(rubygems) 
-BuildRequires: ruby 
-BuildArch: noarch
-Provides: rubygem(%{gemname}) = %{version}
+Summary:        The CoffeeScript Compiler
+Name:           rubygem-%{gemname}
+Version:        1.2.0
+Release:        1%{?dist}
+Group:          Development/Languages
+License:        MIT
+URL:            http://jashkenas.github.com/coffee-script/
+Source0:        http://rubygems.org/gems/%{gemname}-%{version}.gem
+Requires:       ruby(abi) = %{rubyabi}
+Requires:       ruby(rubygems) 
+Requires:       ruby 
+BuildRequires:  ruby(abi) = %{rubyabi}
+BuildRequires:  ruby(rubygems) 
+BuildRequires:  ruby 
+BuildArch:      noarch
+Provides:       rubygem(%{gemname}) = %{version}
 
 %description
 CoffeeScript is a little language that compiles into JavaScript.
@@ -31,10 +31,10 @@ in a simple way.
 
 
 %package doc
-Summary: Documentation for %{name}
-Group: Documentation
-Requires: %{name} = %{version}-%{release}
-BuildArch: noarch
+Summary:    Documentation for %{name}
+Group:      Documentation
+Requires:   %{name} = %{version}-%{release}
+BuildArch:  noarch
 
 %description doc
 Documentation for %{name}
@@ -62,6 +62,8 @@ cp -a .%{gemdir}/* \
 
 %files doc
 %doc %{gemdir}/doc/%{gemname}-%{version}
+
+%exclude %{geminstdir}/.yardoc
 
 
 %changelog
