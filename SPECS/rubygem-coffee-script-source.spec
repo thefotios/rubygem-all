@@ -3,7 +3,7 @@
 
 %global gemdir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
 %global geminstdir %{gemdir}/gems/%{gemname}-%{version}
-%global rubyabi 1.9.3
+%global rubyabi 1.9.1
 
 Summary:        The CoffeeScript Compiler
 Name:           rubygem-%{gemname}
@@ -62,8 +62,6 @@ cp -a .%{gemdir}/* \
 
 %files doc
 %doc %{gemdir}/doc/%{gemname}-%{version}
-
-%exclude %{geminstdir}/.yardoc
 
 
 %changelog
