@@ -1,18 +1,19 @@
-# Generated from execjs-1.2.6.gem by gem2rpm -*- rpm-spec -*-
+# Generated from execjs-1.3.0.gem by gem2rpm -*- rpm-spec -*-
 %global gemname execjs
 
 %global gemdir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
 %global geminstdir %{gemdir}/gems/%{gemname}-%{version}
-%global rubyabi 1.8
+%global rubyabi 1.9.1
 
 Summary: Run JavaScript code from Ruby
 Name: rubygem-%{gemname}
-Version: 1.2.6
+Version: 1.3.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: MIT
 URL: https://github.com/sstephenson/execjs
 Source0: http://rubygems.org/gems/%{gemname}-%{version}.gem
+Source1: %{name}-%{version}-test.tgz
 Requires: ruby(abi) = %{rubyabi}
 Requires: ruby(rubygems) 
 Requires: ruby 
@@ -21,6 +22,7 @@ Requires: rubygem(multi_json) < 2
 BuildRequires: ruby(abi) = %{rubyabi}
 BuildRequires: ruby(rubygems) 
 BuildRequires: ruby 
+BuildRequires: rubygem(minitest)
 BuildArch: noarch
 Provides: rubygem(%{gemname}) = %{version}
 
@@ -44,6 +46,16 @@ mkdir -p .%{gemdir}
 gem install --local --install-dir .%{gemdir} \
             --force %{SOURCE0}
 
+# Got the tests using the following
+# git clone https://github.com/sstephenson/execjs.git && cd execjs
+# git checkout v1.3.0
+# tar czf rubygem-execjs-1.3.0-test.tgz test/
+%check
+pushd .%{geminstdir}
+tar xzf %{SOURCE1}
+testrb -Ilib test
+popd
+
 %build
 
 %install
@@ -54,8 +66,9 @@ cp -a .%{gemdir}/* \
 
 %files
 %dir %{geminstdir}
-%{geminstdir}
-%{gemdir}/cache/%{gemname}-%{version}.gem
+%{geminstdir}/lib
+%{geminstdir}/LICENSE
+%exclude %{gemdir}/cache/%{gemname}-%{version}.gem
 %{gemdir}/specifications/%{gemname}-%{version}.gemspec
 
 %files doc
@@ -64,5 +77,5 @@ cp -a .%{gemdir}/* \
 
 
 %changelog
-* Thu Sep 15 2011 Fotios Lindiakos (fotios at redhat.com) - 1.2.6-1
+* Tue Feb 28 2012 Fotios Lindiakos <fotios@redhat.com> - 1.3.0-1
 - Initial package
