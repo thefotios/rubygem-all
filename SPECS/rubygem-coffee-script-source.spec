@@ -1,26 +1,24 @@
 # Generated from coffee-script-source-1.2.0.gem by gem2rpm -*- rpm-spec -*-
-%global gemname coffee-script-source
+%global gem_name coffee-script-source
 
-%global gemdir %(ruby -rubygems -e 'puts Gem::dir' 2>/dev/null)
-%global geminstdir %{gemdir}/gems/%{gemname}-%{version}
 %global rubyabi 1.9.1
 
 Summary:        The CoffeeScript Compiler
-Name:           rubygem-%{gemname}
+Name:           rubygem-%{gem_name}
 Version:        1.2.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Group:          Development/Languages
 License:        MIT
 URL:            http://jashkenas.github.com/coffee-script/
-Source0:        http://rubygems.org/gems/%{gemname}-%{version}.gem
+Source0:        http://rubygems.org/gems/%{gem_name}-%{version}.gem
 Requires:       ruby(abi) = %{rubyabi}
 Requires:       ruby(rubygems) 
 Requires:       ruby 
 BuildRequires:  ruby(abi) = %{rubyabi}
-BuildRequires:  ruby(rubygems) 
+BuildRequires:  rubygems-devel
 BuildRequires:  ruby 
 BuildArch:      noarch
-Provides:       rubygem(%{gemname}) = %{version}
+Provides:       rubygem(%{gem_name}) = %{version}
 
 %description
 CoffeeScript is a little language that compiles into JavaScript.
@@ -42,28 +40,31 @@ Documentation for %{name}
 
 %prep
 %setup -q -c -T
-mkdir -p .%{gemdir}
-gem install --local --install-dir .%{gemdir} \
+mkdir -p .%{gem_dir}
+gem install --local --install-dir .%{gem_dir} \
             --force %{SOURCE0}
 
 %build
 
 %install
-mkdir -p %{buildroot}%{gemdir}
-cp -a .%{gemdir}/* \
-        %{buildroot}%{gemdir}/
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+        %{buildroot}%{gem_dir}/
 
 
 %files
-%dir %{geminstdir}
-%{geminstdir}/lib
-%exclude %{gemdir}/cache/%{gemname}-%{version}.gem
-%{gemdir}/specifications/%{gemname}-%{version}.gemspec
+%dir %{gem_instdir}
+%{gem_libdir}
+%exclude %{gem_cache}
+%{gem_spec}
 
 %files doc
-%doc %{gemdir}/doc/%{gemname}-%{version}
+%doc %{gem_docdir}
 
 
 %changelog
+* Wed Feb 29 2012 Fotios Lindiakos <fotios@redhat.com> - 1.2.0-2
+- Rebuilt with new gem_* macros
+
 * Mon Feb 27 2012 Fotios Lindiakos <fotios@redhat.com> - 1.2.0-1
 - Initial package
